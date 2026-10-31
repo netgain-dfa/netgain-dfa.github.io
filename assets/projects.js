@@ -107,9 +107,6 @@ fetch("data/projects.csv").then(r => r.text()).then(text => {
   [...new Set(projects.map(p => p.cohort))].sort().forEach(c => cohorts.appendChild(chip("cohort", c, `Cohort ${c}`)));
   const insts = document.querySelector('[data-group="institution"]');
   Object.entries(INSTITUTIONS).forEach(([k, v]) => insts.appendChild(chip("institution", k, v, "inst-" + k)));
-  const present = new Set(projects.flatMap(p => p.topics));
-  const topics = document.querySelector('[data-group="topic"]');
-  Object.entries(TOPICS).filter(([k]) => present.has(k)).forEach(([k, v]) => topics.appendChild(chip("topic", k, v)));
   document.getElementById("search").addEventListener("input", e => { query = e.target.value.trim(); render(); });
 
   render();
