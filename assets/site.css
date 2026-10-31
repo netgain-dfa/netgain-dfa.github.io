@@ -91,3 +91,50 @@ p { margin: 0 0 1em; }
   .feed li { grid-template-columns: 1fr auto; }
   .feed time { grid-column: 1 / -1; }
 }
+
+/* Institution tints: muted versions of each university's colour */
+:root {
+  --inst-st-andrews: #5B7FAA;
+  --inst-glasgow: #C9A227;
+  --inst-aberdeen: #B5584B;
+  --inst-durham: #7C5E99;
+}
+
+/* Filters */
+.filters { margin: 8px 0 20px; }
+.filter-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding: 6px 0; }
+.filter-label { color: var(--ink-2); font-size: 0.88rem; width: 64px; flex: none; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  font: inherit; font-size: 0.86rem; color: var(--ink); cursor: pointer;
+  background: var(--tag); border: 1px solid transparent; border-radius: 999px; padding: 4px 11px;
+}
+.chip:hover { background: var(--line); }
+.chip[aria-pressed="true"] { background: var(--leaf); color: var(--deep); }
+.chip.inst-st-andrews { box-shadow: inset 3px 0 0 var(--inst-st-andrews); }
+.chip.inst-glasgow { box-shadow: inset 3px 0 0 var(--inst-glasgow); }
+.chip.inst-aberdeen { box-shadow: inset 3px 0 0 var(--inst-aberdeen); }
+.chip.inst-durham { box-shadow: inset 3px 0 0 var(--inst-durham); }
+.count { color: var(--ink-2); font-size: 0.88rem; margin: 10px 0 0; }
+
+/* People list */
+.people { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.person {
+  display: grid; grid-template-columns: 72px 1fr; gap: 18px; align-items: start;
+  padding: 18px 0 18px 14px; border-bottom: 1px solid var(--line);
+  border-left: 3px solid var(--line);
+}
+.person.inst-st-andrews { border-left-color: var(--inst-st-andrews); }
+.person.inst-glasgow { border-left-color: var(--inst-glasgow); }
+.person.inst-aberdeen { border-left-color: var(--inst-aberdeen); }
+.person.inst-durham { border-left-color: var(--inst-durham); }
+.person img { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; background: var(--tag); }
+.person h3 { font-size: 1.05rem; font-weight: 600; margin: 2px 0 2px; }
+.person .meta { color: var(--ink-2); font-size: 0.88rem; margin: 0 0 4px; }
+.person .project { margin: 0 0 6px; font-size: 0.98rem; max-width: 62ch; }
+.person .links { font-size: 0.88rem; margin: 0; }
+@media (max-width: 560px) {
+  .person { grid-template-columns: 56px 1fr; gap: 12px; }
+  .person img { width: 56px; height: 56px; }
+  .filter-label { width: 100%; }
+}

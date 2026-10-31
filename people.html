@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>People | NETGAIN</title>
+<meta name="description" content="Doctoral researchers and programme team of the NETGAIN Doctoral Focal Award.">
+<link rel="icon" href="assets/brand/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="NETGAIN home"><img src="assets/brand/logo_wide_transparent.png" alt="NETGAIN"></a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="nav" onclick="const n=document.getElementById('nav');const o=n.classList.toggle('open');this.setAttribute('aria-expanded',o);this.textContent=o?'Close':'Menu';this.parentElement.classList.toggle('open',o)">Menu</button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="/">Home</a>
+      <a href="#">Projects</a>
+      <a href="/people.html" aria-current="page">People</a>
+      <a href="#">Training</a>
+      <a href="#">Partners</a>
+      <a href="#">Apply</a>
+      <a href="#">News</a>
+      <a href="#">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="intro">
+    <h1>People</h1>
+    <p>Doctoral researchers in the NETGAIN programme, each based at one of the four universities and working with a partner organisation. Order is shuffled on every visit.</p>
+  </section>
+
+  <div class="filters" aria-label="Filter people">
+    <div class="filter-row"><span class="filter-label">Cohort</span><span class="chips" data-group="cohort"></span></div>
+    <div class="filter-row"><span class="filter-label">Based at</span><span class="chips" data-group="institution"></span></div>
+    <div class="filter-row"><span class="filter-label">Topic</span><span class="chips" data-group="topic"></span></div>
+    <p class="count" id="count"></p>
+  </div>
+
+  <ul class="people" id="people-list"></ul>
+
+  <h2>Programme team</h2>
+  <p class="quiet">To follow.</p>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Universities of St Andrews, Glasgow, Aberdeen and Durham. Funded by UKRI NERC.</span>
+    <span><a href="mailto:netgain@st-andrews.ac.uk">netgain@st-andrews.ac.uk</a></span>
+  </div>
+</footer>
+
+<script src="assets/people.js"></script>
+</body>
+</html>
