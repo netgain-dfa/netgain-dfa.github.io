@@ -1,8 +1,61 @@
 {
- "fetched": "2026-10-31T09:23:25.016955Z",
- "hits": [],
- "errors": [
-  "https://zenodo.org/api/communities/netgainebook/records?sort=newest&size=100 -> HTTP 400: {\"status\": 400, \"message\": \"A validation error occurred.\", \"errors\": [{\"field\": \"size\", \"messages\": [\"Page size cannot be greater than 25. Please use authenticated requests to increase the limit to 100.\"]}]}",
-  "https://zenodo.org/api/records?communities=netgainebook&sort=newest&size=100 -> HTTP 400: {\"status\": 400, \"message\": \"A validation error occurred.\", \"errors\": [{\"field\": \"size\", \"messages\": [\"Page size cannot be greater than 25. Please use authenticated requests to increase the limit to 100.\"]}]}"
- ]
+ "fetched": "2026-10-31T09:25:00.910926Z",
+ "hits": [
+  {
+   "id": 23497312,
+   "doi": "10.5281/zenodo.23497312",
+   "title": "Can Nature Markets Deliver Net Gain Objectives?",
+   "creators": [
+    "Sharpe, Charlotte",
+    "Simpson (Needham), Katherine"
+   ],
+   "date": "2026-10-20",
+   "type": "Book chapter",
+   "description": "<p class=\"MsoNormal\"><span>Nature markets have emerged as a key policy mechanism for generating private investment in biodiversity recovery. In England, they are positioned as a key part of governments&rsquo; strategy for meeting the commitments of the Environment Act 2021, which is aligned with international targets described in the Kunming-Montreal Global Biodiversity Framework. This chapter describes the underlying logic of nature markets and, using the policy of biodiversity net gain in England as a case study of a compliance market, considers the main participants to evaluate the extent to which nature markets may contribute to Net Gain outcomes. </span></p>\n<p class=\"MsoNormal\">&nbsp;</p>\n<h4>Take-home messages</h4>\n<p class=\"MsoListParagraphCxSpFirst\"><span><span>&middot;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span>Nature markets aim to mobilise private finance into biodiversity recovery.</span></p>\n<p class=\"MsoListParagraphCxSpMiddle\"><span><span>&middot;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span>Biodiversity Net Gain (BNG) is England&rsquo;s most significant compliance-based nature market.</span></p>\n<p class=\"MsoListParagraphCxSpMiddle\"><span><span>&middot;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span>A successful market depends on land managers, developers, and effective governance. Currently the lack of personnel within LPAs undermines effective implementation of the BNG market. </span></p>\n<p class=\"MsoListParagraphCxSpLast\"><span><span>&middot;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span>Ecological outcomes remain uncertain due to complex species responses at large scales and uncertain correlations with the statutory biodiversity metric. Long-term monitoring is crucial for understanding the contributions of nature markets to delivering Net Gain. </span></p>",
+   "link": "https://zenodo.org/records/23497312"
+  },
+  {
+   "id": 22818076,
+   "doi": "10.5281/zenodo.22818076",
+   "title": "Introduction to Net Gain",
+   "creators": [
+    "Simpson (Needham), Katherine",
+    "Cary, Emma",
+    "Cole, Lydia",
+    "Henry, Roslyn",
+    "Lambin, Xavier",
+    "Stephens, Philip",
+    "Sutherland, Chris",
+    "Wartmann, Flurina",
+    "Matthiopoulos, Jason"
+   ],
+   "date": "2026",
+   "type": "Book chapter",
+   "description": "<p>Introductory chapter for eBook \"The Science and Practice of Net Gain\".</p>\n<h4>Take-home messages</h4>\n<p class=\"MsoListParagraphCxSpFirst\"><span><span>&middot;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span>Human dominance transforms space use, biogeochemical cycles, and wildlife abundance globally and irreversibly.</p>\n<p class=\"MsoListParagraphCxSpMiddle\"><span><span>&middot;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span>These changes drive accelerating global warming and biodiversity loss, crossing planetary tipping points.</p>\n<p class=\"MsoListParagraphCxSpMiddle\"><span><span>&middot;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span>Confronting these crises demands urgent, equitable, and coordinated global environmental action. This needs to be multinational, multisector and multidisciplinary.</p>\n<p class=\"MsoListParagraphCxSpMiddle\"><span><span>&middot;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span>Net Gain aims to ensure that human development leaves nature better than before.</p>\n<p class=\"MsoListParagraphCxSpMiddle\"><span><span>&middot;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span>The key conceptual tool in this is the mitigation hierarchy: Sequentially aiming to avoid, minimise, restore, and offset damage, to manage human impacts.</p>\n<p class=\"MsoListParagraphCxSpMiddle\"><span><span>&middot;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span>Thinking has shifted from balancing losses to achieving measurable biodiversity improvements overall by linking regulation and voluntary efforts for ecosystem recovery.</p>\n<p class=\"MsoListParagraphCxSpMiddle\"><span><span>&middot;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span>Ecological interventions include 1) prioritising, connecting, and balancing land use for optimal biodiversity conservation. 2) Restoring carbon, nitrogen, and phosphorus cycles to stabilise ecosystems sustainably and 3) Reintroducing natives, controlling invasives, and rewilding to restore ecological function.</p>\n<p class=\"MsoListParagraphCxSpMiddle\"><span><span>&middot;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span>Economic interventions include taxation of damaging activities, tradeable pollution permits, biodiversity credits, subsidies and payments for ecosystem services<strong>, </strong>certifications, transparency, and standards to build trust in green finance markets.</p>\n<p class=\"MsoListParagraphCxSpMiddle\"><span><span>&middot;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span>Law defines duties, accountability, and enforceable standards for environmental improvement. Global treaties such as the Paris Agreement and <span>Kunming&ndash;Montreal Global Biodiversity Framework</span> coordinate cooperative climate and biodiversity action among nations.</p>\n<p class=\"MsoListParagraphCxSpMiddle\"><span><span>&middot;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span>Biodiversity offsets risk ignoring social, cultural, and place-based values; effective Net Gain requires transparency, community engagement, and recognition of relational connections.</p>\n<p class=\"MsoListParagraphCxSpLast\"><span><span>&middot;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span>Technological innovation allows us to extract more efficiencies from our use of resources and to minimise damage. It also allows us synoptic monitoring of global systems and the efficient analysis of available data to maximise precision in ecosystem management.</p>",
+   "link": "https://zenodo.org/records/22818076"
+  },
+  {
+   "id": 22813354,
+   "doi": "10.5281/zenodo.22813354",
+   "title": "Preface: The Science and Practice of Net Gain",
+   "creators": [
+    "Matthiopoulos, Jason",
+    "Cole, Lydia",
+    "Henry, Roslyn",
+    "Lambin, Xavier",
+    "Simpson (Needham), Katherine",
+    "Stephens, Philip",
+    "Wartmann, Flurina",
+    "Willis, Stephen",
+    "Sutherland, Chris"
+   ],
+   "date": "2026",
+   "type": "Book chapter",
+   "description": "<p>Preface to the eBook \"The science and practice of Net Gain\"<br><br>Take home messages:</p>\n<p class=\"MsoListParagraphCxSpFirst\"><span><span>&middot;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span>Humanity faces environmental crises, demanding coordinated, evidence-based action toward nature-positive &ldquo;Net Gain&rdquo; outcomes.</p>\n<p class=\"MsoListParagraphCxSpMiddle\"><span><span>&middot;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span>Urgently needed Net Gain science requires integration across ecology, economics, law, engineering, and the social sciences.</p>\n<p class=\"MsoListParagraphCxSpMiddle\"><span><span>&middot;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span>This eBook provides a dynamic, interdisciplinary repository advancing theory, terminology, and practice for Net Gain research and application.</p>\n<p class=\"MsoListParagraphCxSpMiddle\"><span><span>&middot;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span>Content includes primers, reviews, syntheses, and case studies incorporating important negative results, and abridged peer-reviewed publications.</p>\n<p class=\"MsoListParagraphCxSpLast\"><span><span>&middot;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span>The eBook&rsquo;s living format ensures that new insights will be communicated to graduate students, professionals, and decision-makers shaping equitable, evidence-based environmental solutions.</p>",
+   "link": "https://zenodo.org/records/22813354"
+  }
+ ],
+ "errors": [],
+ "total": 3,
+ "source": "https://zenodo.org/api/communities/netgainebook/records?sort=newest&size=25&page="
 }
