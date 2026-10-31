@@ -17,27 +17,35 @@ jobs:
         shell: python
         run: |
           import json, urllib.request, urllib.error, datetime, os
-          urls = [
-            "https://zenodo.org/api/communities/netgainebook/records?sort=newest&size=100",
-            "https://zenodo.org/api/records?communities=netgainebook&sort=newest&size=100",
+          bases = [
+            "https://zenodo.org/api/communities/netgainebook/records?sort=newest&size=25&page=",
+            "https://zenodo.org/api/records?communities=netgainebook&sort=newest&size=25&page=",
           ]
           out = {"fetched": datetime.datetime.utcnow().isoformat() + "Z", "hits": [], "errors": []}
-          data = None
-          for u in urls:
+          def get(u):
+            req = urllib.request.Request(u, headers={"Accept": "application/json", "User-Agent": "netgain-dfa.org sync"})
+            with urllib.request.urlopen(req, timeout=60) as r:
+              return json.loads(r.read().decode("utf-8", "replace"))
+          hits = None
+          for b in bases:
             try:
-              req = urllib.request.Request(u, headers={"Accept": "application/json", "User-Agent": "netgain-dfa.org sync"})
-              with urllib.request.urlopen(req, timeout=60) as r:
-                body = r.read().decode("utf-8", "replace")
-              data = json.loads(body)
-              out["source"] = u
+              hits, page = [], 1
+              while True:
+                data = get(b + str(page))
+                batch = data.get("hits", {}).get("hits", [])
+                hits.extend(batch)
+                out["total"] = data.get("hits", {}).get("total")
+                if len(batch) < 25 or page >= 20: break
+                page += 1
+              out["source"] = b
               break
             except urllib.error.HTTPError as e:
-              out["errors"].append(f"{u} -> HTTP {e.code}: {e.read()[:300].decode('utf-8','replace')}")
+              hits = None
+              out["errors"].append(f"{b} -> HTTP {e.code}: {e.read()[:300].decode('utf-8','replace')}")
             except Exception as e:
-              out["errors"].append(f"{u} -> {type(e).__name__}: {e}")
-          if data:
-            hits = data.get("hits", {}).get("hits", [])
-            out["total"] = data.get("hits", {}).get("total")
+              hits = None
+              out["errors"].append(f"{b} -> {type(e).__name__}: {e}")
+          if hits is not None:
             for h in hits:
               m = h.get("metadata", {})
               rt = m.get("resource_type", {})
