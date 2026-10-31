@@ -107,7 +107,7 @@ p { margin: 0 0 1em; }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; }
 .chip {
   font: inherit; font-size: 0.86rem; color: var(--ink); cursor: pointer;
-  background: var(--tag); border: 1px solid transparent; border-radius: 999px; padding: 4px 11px;
+  background: var(--tag); border: 1px solid transparent; border-radius: 5px; padding: 4px 11px;
 }
 .chip:hover { background: var(--line); }
 .chip[aria-pressed="true"] { background: var(--leaf); color: var(--deep); }
@@ -128,11 +128,15 @@ p { margin: 0 0 1em; }
 .person.inst-glasgow { border-left-color: var(--inst-glasgow); }
 .person.inst-aberdeen { border-left-color: var(--inst-aberdeen); }
 .person.inst-durham { border-left-color: var(--inst-durham); }
-.person img { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; background: var(--tag); }
+.person img { width: 72px; height: 72px; border-radius: 6px; object-fit: cover; background: var(--tag); }
 .person h3 { font-size: 1.05rem; font-weight: 600; margin: 2px 0 2px; }
 .person .meta { color: var(--ink-2); font-size: 0.88rem; margin: 0 0 4px; }
 .person .project { margin: 0 0 6px; font-size: 0.98rem; max-width: 62ch; }
-.person .links { font-size: 0.88rem; margin: 0; }
+.person .links { margin: 2px 0 0; display: flex; gap: 10px; }
+.person .links a, .person .links span { display: inline-flex; width: 20px; height: 20px; color: var(--link); }
+.person .links span { color: #C5CDC9; }
+.person .links svg { width: 20px; height: 20px; fill: currentColor; }
+.person .links a:hover { color: var(--deep); }
 @media (max-width: 560px) {
   .person { grid-template-columns: 56px 1fr; gap: 12px; }
   .person img { width: 56px; height: 56px; }
@@ -140,7 +144,7 @@ p { margin: 0 0 1em; }
 }
 
 /* Projects list */
-.search { font: inherit; font-size: 0.9rem; padding: 5px 10px; border: 1px solid var(--line); border-radius: 999px; width: min(100%, 340px); }
+.search { font: inherit; font-size: 0.9rem; padding: 5px 10px; border: 1px solid var(--line); border-radius: 5px; width: min(100%, 340px); }
 .projects-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
 .project-row { padding: 14px 0 14px 14px; border-bottom: 1px solid var(--line); border-left: 3px solid var(--line); }
 .project-row.inst-st-andrews { border-left-color: var(--inst-st-andrews); }
@@ -155,5 +159,10 @@ p { margin: 0 0 1em; }
 .project-team { display: block; color: var(--ink-2); font-size: 0.88rem; margin: 3px 0 0 1.1em; }
 .partners { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; margin: 8px 0 0 1.1em; font-size: 0.86rem; color: var(--ink-2); }
 .partner img { height: 26px; width: auto; max-width: 140px; object-fit: contain; display: block; }
+@media (max-width: 560px) {
+  .partners { gap: 8px; }
+  .project-row:not(.open) .partner { width: 10px; height: 10px; border-radius: 50%; background: var(--line); overflow: hidden; color: transparent; font-size: 0; }
+  .project-row:not(.open) .partner img { display: none; }
+}
 .project-summary { margin: 10px 0 2px 1.1em; max-width: 68ch; font-size: 0.98rem; }
 .project-summary p { margin: 0; }

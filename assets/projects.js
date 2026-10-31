@@ -77,6 +77,7 @@ fetch("data/projects.csv").then(r => r.text()).then(text => {
       const open = b.getAttribute("aria-expanded") !== "true";
       b.setAttribute("aria-expanded", open);
       document.getElementById(b.getAttribute("aria-controls")).hidden = !open;
+      b.closest(".project-row").classList.toggle("open", open);
     }));
     document.getElementById("count").textContent =
       shown.length === projects.length ? `${projects.length} projects` : `${shown.length} of ${projects.length}`;
