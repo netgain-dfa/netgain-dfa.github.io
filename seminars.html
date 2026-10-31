@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seminars | NETGAIN</title>
+<meta name="description" content="The NETGAIN seminar series on the science and practice of nature markets: upcoming talks, abstracts and recordings.">
+<link rel="icon" href="assets/brand/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=4">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="NETGAIN home"><img src="assets/brand/logo_wide_transparent.png" alt="NETGAIN"></a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="nav" onclick="const n=document.getElementById('nav');const o=n.classList.toggle('open');this.setAttribute('aria-expanded',o);this.textContent=o?'Close':'Menu';this.parentElement.classList.toggle('open',o)">Menu</button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="/">Home</a>
+      <a href="/people.html">People</a>
+      <a href="/projects.html">Projects</a>
+      <a href="/partners.html">Partners</a>
+      <a href="/seminars.html" aria-current="page">Seminars</a>
+      <a href="#">Training</a>
+      <a href="#">Apply</a>
+      <a href="#">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="intro">
+    <h1>Seminars</h1>
+  </section>
+
+  <div class="tabs" role="tablist" aria-label="Upcoming or past">
+    <button class="tab" role="tab" data-tab="upcoming" aria-selected="true">Upcoming</button>
+    <button class="tab" role="tab" data-tab="past" aria-selected="false">Past</button>
+  </div>
+  <div class="filters">
+    <div class="filter-row"><label class="filter-label" for="search">Search</label><input class="search" id="search" type="search" placeholder="Title, speaker or keyword"></div>
+  </div>
+
+  <ul class="projects-list" id="seminar-list"></ul>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Universities of St Andrews, Glasgow, Aberdeen and Durham. Funded by UKRI NERC.</span>
+    <span><a href="mailto:netgain@st-andrews.ac.uk">netgain@st-andrews.ac.uk</a></span>
+  </div>
+</footer>
+
+<script src="assets/seminars.js?v=4"></script>
+</body>
+</html>
