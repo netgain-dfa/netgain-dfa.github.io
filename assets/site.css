@@ -251,7 +251,8 @@ p { margin: 0 0 1em; }
 @media (max-width: 560px) { .funder img { height: 46px; } }
 .ebook-row { border-left-color: var(--tide); }
 .doi { color: var(--ink-2); }
-.cover-intro { display: flex; gap: 28px; align-items: flex-start; margin-top: 6px; }
+.cover-intro { display: flex; gap: 28px; align-items: center; margin-top: 6px; }
+.cover-intro > div > p:last-child { margin-bottom: 0; }
 .cover { flex: none; width: 200px; }
 .cover img { width: 100%; height: auto; display: block; border: 1px solid var(--line); border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
 @media (max-width: 560px) { .cover-intro { flex-direction: column; gap: 16px; } .cover { width: 130px; } }
