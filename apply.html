@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Apply | NETGAIN</title>
+<meta name="description" content="How to apply for a NETGAIN PhD studentship, and how supervisory teams propose projects.">
+<link rel="icon" href="assets/brand/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=10">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="NETGAIN home"><img src="assets/brand/logo_wide_transparent.png" alt="NETGAIN"></a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="nav" onclick="const n=document.getElementById('nav');const o=n.classList.toggle('open');this.setAttribute('aria-expanded',o);this.textContent=o?'Close':'Menu';this.parentElement.classList.toggle('open',o)">Menu</button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="/">Home</a>
+      <a href="/people.html">People</a>
+      <a href="/projects.html">Projects</a>
+      <a href="/partners.html">Partners</a>
+      <a href="/seminars.html">Seminars</a>
+      <a href="/invest.html">Invest</a>
+      <a href="/apply.html" aria-current="page">Apply</a>
+      <a href="/about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap prose">
+  <section class="intro">
+    <h1>Apply</h1>
+  </section>
+
+  <div class="tabs" role="tablist" aria-label="Who are you">
+    <button class="tab" role="tab" data-tab="students" aria-selected="true" aria-controls="panel-students">For students</button>
+    <button class="tab" role="tab" data-tab="supervisors" aria-selected="false" aria-controls="panel-supervisors">For supervisors</button>
+  </div>
+
+  <section id="panel-students" class="panel" role="tabpanel">
+    <p>Projects will be advertised here in December.</p>
+  </section>
+
+  <section id="panel-supervisors" class="panel" role="tabpanel" hidden>
+    <h2>Call for proposals: cohort 3</h2>
+    <p>This is the third and final NETGAIN call for PhD project proposals. We expect to fund about 20 studentships across St Andrews, Glasgow, Aberdeen and Durham, starting in academic year 2027/28.</p>
+
+    <ul class="options">
+      <li>
+        <h2>Key dates</h2>
+        <p><b>Proposal deadline:</b> Monday 9 November 2026, 12:00 noon UTC<br><b>Outcomes:</b> week beginning Monday 30 November 2026</p>
+        <a class="option-link" href="https://netgain.wp.st-andrews.ac.uk/files/2026/08/NETGAIN-Project-Proposal-Template-2027.docx">Download the proposal template (.docx)</a>
+      </li>
+    </ul>
+
+    <h3>Supervisory team</h3>
+    <p>Proposals come from a team of three to five supervisors, which must include:</p>
+    <ul class="plain">
+      <li>academics from at least two of the four partner universities</li>
+      <li>one named individual from an external partner organisation</li>
+      <li>one academic with demonstrated expertise in ecology or environmental science</li>
+      <li>one academic with demonstrated expertise in another NETGAIN-relevant discipline</li>
+    </ul>
+
+    <h3>What to submit</h3>
+    <dl class="defs">
+      <dt>Project summary (up to 400 words)</dt><dd>Explicitly defined objectives and scope.</dd>
+      <dt>Relevance statement (up to 300 words)</dt><dd>How the project fits the NETGAIN vision.</dd>
+      <dt>Interdisciplinarity and co-creation (up to 300 words)</dt><dd>The project's collaborative aspects and what each supervisor contributes.</dd>
+    </dl>
+    <p>Use the proposal template and send the completed form to <a href="mailto:netgain@st-andrews.ac.uk?subject=NETGAIN%20cohort%203%20proposal">netgain@st-andrews.ac.uk</a> by the deadline.</p>
+
+    <h3>Documents</h3>
+    <ul class="plain">
+      <li><a href="https://netgain.wp.st-andrews.ac.uk/files/2026/08/NETGAIN-call-for-proposals-AY-27-28-1.pdf">Full call for proposals (PDF)</a></li>
+      <li><a href="https://netgain.wp.st-andrews.ac.uk/files/2026/08/NETGAIN-Project-Proposal-Template-2027.docx">Proposal template (.docx)</a></li>
+      <li><a href="https://netgain.wp.st-andrews.ac.uk/files/2026/08/Project-Pitches.pdf">Project pitches from the June 2026 incubator (PDF)</a></li>
+      <li><a href="https://www.dropbox.com/scl/fi/ogt21n4hrdr1pbmf4bhfl/NETGAIN-full-proposal.pdf?rlkey=3z7xfbu92cty58jv1sna1sh0m&dl=1">The successful NETGAIN award proposal (PDF)</a></li>
+      <li><a href="/projects.html">Current projects</a>, for a sense of scope and style</li>
+    </ul>
+
+    <details class="fold">
+      <summary>Information webinar</summary>
+      <p>A recording of the information webinar is available. It was made for an earlier round, so where dates differ the ones on this page take precedence.</p>
+      <p><a href="https://www.dropbox.com/scl/fi/0pedqwivbtg5940edx4u0/2026-call-infowebinar-clip.mp4?rlkey=ntg4tlxu4cb28jfxe2kiw3w4t&raw=1">Watch the webinar clip</a></p>
+    </details>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Universities of St Andrews, Glasgow, Aberdeen and Durham. Funded by UKRI NERC.</span>
+    <span><a href="mailto:netgain@st-andrews.ac.uk">netgain@st-andrews.ac.uk</a></span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  const tabs = document.querySelectorAll(".tab");
+  function show(name) {
+    tabs.forEach(t => {
+      const on = t.dataset.tab === name;
+      t.setAttribute("aria-selected", on);
+      document.getElementById("panel-" + t.dataset.tab).hidden = !on;
+    });
+  }
+  tabs.forEach(t => t.addEventListener("click", () => { show(t.dataset.tab); history.replaceState(null, "", "#" + t.dataset.tab); }));
+  const h = location.hash.replace("#", "");
+  if (h === "students" || h === "supervisors") show(h);
+})();
+</script>
+</body>
+</html>
