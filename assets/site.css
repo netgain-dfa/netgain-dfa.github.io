@@ -48,7 +48,7 @@ p { margin: 0 0 1em; }
   .menu-btn {
     display: inline-flex; align-items: center; gap: 8px;
     font: inherit; font-size: 0.92rem; font-weight: 600; color: var(--deep);
-    background: var(--tag); border: 1px solid var(--line); border-radius: 999px;
+    background: var(--tag); border: 1px solid var(--line); border-radius: 5px;
     padding: 7px 14px; cursor: pointer;
   }
   .menu-btn[aria-expanded="true"] { background: var(--leaf); border-color: var(--leaf); }
@@ -58,7 +58,7 @@ p { margin: 0 0 1em; }
     width: 100%; flex-basis: 100%; padding-top: 14px;
   }
   .nav.open a {
-    color: var(--ink); background: var(--tag); border-radius: 999px;
+    color: var(--ink); background: var(--tag); border-radius: 5px;
     padding: 7px 14px; font-size: 0.92rem;
   }
   .nav.open a[aria-current] { background: var(--leaf); color: var(--deep); }
