@@ -163,3 +163,17 @@ p { margin: 0 0 1em; }
 
 .project-summary { margin: 10px 0 2px var(--marker); max-width: 68ch; font-size: 0.98rem; }
 .project-summary p { margin: 0; }
+
+/* Partners */
+.tier { margin-top: 8px; }
+.tier h2 { margin-top: 2em; }
+.tier .quiet { color: var(--ink-2); font-size: 0.95rem; max-width: 62ch; }
+.logo-grid { list-style: none; margin: 14px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px 16px; }
+.logo-grid a, .logo-grid .nolink { display: block; text-decoration: none; color: var(--ink-2); }
+.logo-box { display: flex; align-items: center; justify-content: center; height: 72px; border: 1px solid var(--line); border-radius: 6px; padding: 10px; background: var(--paper); }
+.logo-box img { max-height: 100%; max-width: 100%; object-fit: contain; }
+.logo-box img.placeholder { opacity: 0.35; max-height: 44px; }
+.logo-name { display: block; font-size: 0.82rem; line-height: 1.3; margin-top: 6px; text-align: center; }
+.logo-grid a:hover .logo-box { border-color: var(--leaf); }
+.logo-grid a:hover .logo-name { color: var(--link); }
+@media (max-width: 560px) { .logo-grid { grid-template-columns: repeat(3, 1fr); gap: 14px 10px; } .logo-box { height: 60px; } }
