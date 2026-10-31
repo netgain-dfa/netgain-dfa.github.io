@@ -187,3 +187,18 @@ p { margin: 0 0 1em; }
 .seminar-links { margin-top: 10px !important; font-size: 0.92rem; }
 .seminar-links .dead { color: #B9C2BE; }
 .empty { padding: 18px 0; color: var(--ink-2); font-size: 0.95rem; }
+
+/* Prose pages */
+.prose h1 { font-size: 1.75rem; max-width: 26ch; }
+.prose h2 { font-size: 1.2rem; margin-top: 2.2em; }
+.prose h3 { font-size: 1.02rem; font-weight: 600; margin: 1.6em 0 0.4em; }
+.prose p { max-width: 64ch; }
+.facts { list-style: none; margin: 12px 0 0; padding: 12px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; font-size: 0.9rem; color: var(--ink-2); line-height: 1.35; }
+.facts b { display: block; font-size: 1.4rem; font-weight: 600; color: var(--ink); }
+.defs { margin: 0.6em 0 0; max-width: 64ch; }
+.defs dt { font-weight: 600; margin-top: 0.9em; }
+.defs dd { margin: 0.15em 0 0; color: var(--ink-2); font-size: 0.98rem; }
+.defs .cost { display: block; margin-top: 4px; color: var(--link); font-size: 0.92rem; }
+.prose blockquote { margin: 1.4em 0 0; padding-left: 14px; border-left: 3px solid var(--leaf); max-width: 56ch; }
+.prose blockquote cite { display: block; font-style: normal; color: var(--ink-2); font-size: 0.88rem; margin-top: 4px; }
+@media (max-width: 560px) { .facts { grid-template-columns: repeat(2, 1fr); } }
