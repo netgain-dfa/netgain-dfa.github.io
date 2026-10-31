@@ -84,7 +84,7 @@ p { margin: 0 0 1em; }
 
 /* Footer */
 .site-footer { margin-top: 56px; padding: 20px 0 36px; border-top: 1px solid var(--line); color: var(--ink-2); font-size: 0.88rem; }
-.site-footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.site-footer .wrap { display: flex; justify-content: flex-start; gap: 16px; flex-wrap: wrap; }
 .site-footer a { color: var(--ink-2); }
 
 @media (max-width: 560px) {
@@ -243,8 +243,12 @@ p { margin: 0 0 1em; }
 .prose .resources h2 { margin: 0 0 4px; font-size: 1.1rem; }
 .prose .resources p { margin: 0 0 6px; color: var(--ink-2); font-size: 0.98rem; }
 .resources .dead { color: #B9C2BE; font-size: 0.9rem; }
-.funder { display: flex; align-items: center; gap: 14px; }
-.funder img { height: 34px; width: auto; display: block; }
+.funder { display: flex; align-items: center; gap: 18px; }
+.funder img { height: 64px; width: auto; display: block; flex: none; }
+.funder > span { max-width: 48ch; }
+.site-footer a.email { color: var(--link); font-weight: 600; }
+.site-footer a.email:hover { color: var(--deep); }
+@media (max-width: 560px) { .funder img { height: 52px; } }
 .ebook-row { border-left-color: var(--tide); }
 .doi { color: var(--ink-2); }
 .cover-intro { display: flex; gap: 28px; align-items: flex-start; }
