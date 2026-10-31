@@ -16,7 +16,8 @@
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="/" aria-label="NETGAIN home"><img src="assets/brand/logo_wide_transparent.png" alt="NETGAIN"></a>
-    <nav class="nav" aria-label="Main">
+    <button class="menu-btn" aria-expanded="false" aria-controls="nav" onclick="const n=document.getElementById('nav');const o=n.classList.toggle('open');this.setAttribute('aria-expanded',o);this.textContent=o?'Close':'Menu';this.parentElement.classList.toggle('open',o)">Menu</button>
+    <nav class="nav" id="nav" aria-label="Main">
       <a href="/" aria-current="page">Home</a>
       <a href="#">Projects</a>
       <a href="#">People</a>
