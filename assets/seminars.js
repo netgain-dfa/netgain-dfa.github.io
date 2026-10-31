@@ -20,7 +20,7 @@ fetch("data/seminars.csv").then(r => r.text()).then(text => {
   function links(s, isPast) {
     const out = [];
     if (!isPast && s.register) out.push(`<a href="${esc(s.register)}">Register</a>`);
-    out.push(s.chapter ? `<a href="${esc(s.chapter)}">E-book chapter</a>` : `<span class="dead">E-book chapter</span>`);
+    out.push(s.chapter ? `<a href="${esc(s.chapter)}">eBook chapter</a>` : `<span class="dead">eBook chapter</span>`);
     if (isPast) out.push(s.recording ? `<a href="${esc(s.recording)}">Recording</a>` : `<span class="dead">Recording</span>`);
     return out.join(" · ");
   }

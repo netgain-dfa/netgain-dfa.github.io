@@ -245,3 +245,5 @@ p { margin: 0 0 1em; }
 .resources .dead { color: #B9C2BE; font-size: 0.9rem; }
 .funder { display: flex; align-items: center; gap: 14px; }
 .funder img { height: 34px; width: auto; display: block; }
+.ebook-row { border-left-color: var(--tide); }
+.doi { color: var(--ink-2); }

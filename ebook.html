@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>eBook | NETGAIN</title>
+<meta name="description" content="The Science and Practice of Net Gain: a living, open-access eBook from the NETGAIN Doctoral Focal Award.">
+<link rel="icon" href="assets/brand/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=15">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="NETGAIN home"><img src="assets/brand/logo_wide_transparent.png" alt="NETGAIN"></a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="nav" onclick="const n=document.getElementById('nav');const o=n.classList.toggle('open');this.setAttribute('aria-expanded',o);this.textContent=o?'Close':'Menu';this.parentElement.classList.toggle('open',o)">Menu</button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="/">Home</a>
+      <a href="/people.html">People</a>
+      <a href="/projects.html">Projects</a>
+      <a href="/partners.html">Partners</a>
+      <a href="/seminars.html">Seminars</a>
+      <a href="/ebook.html" aria-current="page">eBook</a>
+      <a href="/invest.html">Invest</a>
+      <a href="/apply.html">Apply</a>
+      <a href="/resources.html">Resources</a>
+      <a href="/about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="intro">
+    <h1>The Science and Practice of Net Gain</h1>
+    <p>A living, open-access eBook. Each NETGAIN seminar and research output becomes a chapter, published with a DOI on <a href="https://zenodo.org/communities/netgainebook/records?sort=newest">Zenodo</a> so it can be read, cited and built on by anyone. New chapters appear here as they are published.</p>
+  </section>
+
+  <p class="count" id="ebook-status">Loading chapters from Zenodo.</p>
+  <ul class="projects-list" id="ebook-list"></ul>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span class="funder"><img src="assets/brand/ukri-nerc.png" alt="UKRI Natural Environment Research Council" onerror="this.remove()"><span>Funded by UKRI NERC. Delivered by the Universities of St Andrews, Glasgow, Aberdeen and Durham.</span></span>
+    <span><a href="mailto:netgain@st-andrews.ac.uk">netgain@st-andrews.ac.uk</a></span>
+  </div>
+</footer>
+
+<script src="assets/common.js?v=15"></script>
+<script src="assets/ebook.js?v=15"></script>
+</body>
+</html>
