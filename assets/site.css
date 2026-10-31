@@ -243,3 +243,5 @@ p { margin: 0 0 1em; }
 .prose .resources h2 { margin: 0 0 4px; font-size: 1.1rem; }
 .prose .resources p { margin: 0 0 6px; color: var(--ink-2); font-size: 0.98rem; }
 .resources .dead { color: #B9C2BE; font-size: 0.9rem; }
+.funder { display: flex; align-items: center; gap: 14px; }
+.funder img { height: 34px; width: auto; display: block; }
