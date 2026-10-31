@@ -120,7 +120,7 @@ p { margin: 0 0 1em; }
 /* People list */
 .people { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
 .person {
-  display: grid; grid-template-columns: 72px 1fr; gap: 18px; align-items: start;
+  display: grid; grid-template-columns: 110px 1fr; gap: 20px; align-items: start;
   padding: 18px 0 18px 14px; border-bottom: 1px solid var(--line);
   border-left: 3px solid var(--line);
 }
@@ -128,7 +128,7 @@ p { margin: 0 0 1em; }
 .person.inst-glasgow { border-left-color: var(--inst-glasgow); }
 .person.inst-aberdeen { border-left-color: var(--inst-aberdeen); }
 .person.inst-durham { border-left-color: var(--inst-durham); }
-.person img { width: 72px; height: 72px; border-radius: 6px; object-fit: cover; background: var(--tag); }
+.person img { width: 110px; height: 110px; border-radius: 6px; object-fit: cover; background: var(--tag); }
 .person h3 { font-size: 1.05rem; font-weight: 600; margin: 0 0 2px; }
 .person .meta { color: var(--ink-2); font-size: 0.88rem; margin: 0 0 6px; line-height: 1.45; }
 .person .project { margin: 0 0 4px; font-size: 0.98rem; max-width: 62ch; }
@@ -138,8 +138,8 @@ p { margin: 0 0 1em; }
 .person .links svg { width: 20px; height: 20px; fill: currentColor; }
 .person .links a:hover { color: var(--deep); }
 @media (max-width: 560px) {
-  .person { grid-template-columns: 56px 1fr; gap: 12px; }
-  .person img { width: 56px; height: 56px; }
+  .person { grid-template-columns: 84px 1fr; gap: 14px; }
+  .person img { width: 84px; height: 84px; }
   .filter-label { width: 100%; }
 }
 
