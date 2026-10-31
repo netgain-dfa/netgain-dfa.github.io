@@ -14,19 +14,52 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Fetch community records
+        shell: python
         run: |
-          set -e
-          mkdir -p data
-          URL1="https://zenodo.org/api/communities/netgainebook/records?sort=newest&size=100"
-          URL2="https://zenodo.org/api/records?communities=netgainebook&sort=newest&size=100"
-          if ! curl -fsSL -H "Accept: application/json" "$URL1" -o /tmp/ebook.json; then
-            curl -fsSL -H "Accept: application/json" "$URL2" -o /tmp/ebook.json
-          fi
-          jq '{fetched: (now | todate), hits: [.hits.hits[] | {id, doi: (.doi // .pids.doi.identifier // ""), title: .metadata.title, creators: [.metadata.creators[] | (.person_or_org.name // .name)], date: (.metadata.publication_date // .created), type: (.metadata.resource_type.title.en // .metadata.resource_type.title // .metadata.resource_type.type // ""), description: (.metadata.description // ""), link: (.links.self_html // "")}]}' /tmp/ebook.json > data/ebook.json
-          jq '.hits | length' data/ebook.json
+          import json, urllib.request, urllib.error, datetime, os
+          urls = [
+            "https://zenodo.org/api/communities/netgainebook/records?sort=newest&size=100",
+            "https://zenodo.org/api/records?communities=netgainebook&sort=newest&size=100",
+          ]
+          out = {"fetched": datetime.datetime.utcnow().isoformat() + "Z", "hits": [], "errors": []}
+          data = None
+          for u in urls:
+            try:
+              req = urllib.request.Request(u, headers={"Accept": "application/json", "User-Agent": "netgain-dfa.org sync"})
+              with urllib.request.urlopen(req, timeout=60) as r:
+                body = r.read().decode("utf-8", "replace")
+              data = json.loads(body)
+              out["source"] = u
+              break
+            except urllib.error.HTTPError as e:
+              out["errors"].append(f"{u} -> HTTP {e.code}: {e.read()[:300].decode('utf-8','replace')}")
+            except Exception as e:
+              out["errors"].append(f"{u} -> {type(e).__name__}: {e}")
+          if data:
+            hits = data.get("hits", {}).get("hits", [])
+            out["total"] = data.get("hits", {}).get("total")
+            for h in hits:
+              m = h.get("metadata", {})
+              rt = m.get("resource_type", {})
+              title = rt.get("title")
+              if isinstance(title, dict): title = title.get("en") or next(iter(title.values()), "")
+              out["hits"].append({
+                "id": h.get("id"),
+                "doi": h.get("doi") or (h.get("pids", {}).get("doi", {}) or {}).get("identifier", ""),
+                "title": m.get("title", ""),
+                "creators": [(c.get("person_or_org", {}) or {}).get("name") or c.get("name", "") for c in m.get("creators", [])],
+                "date": m.get("publication_date") or h.get("created", ""),
+                "type": title or rt.get("type", ""),
+                "description": m.get("description", ""),
+                "link": (h.get("links", {}) or {}).get("self_html", ""),
+              })
+          os.makedirs("data", exist_ok=True)
+          with open("data/ebook.json", "w") as f:
+            json.dump(out, f, indent=1, ensure_ascii=False)
+          print(json.dumps({k: v for k, v in out.items() if k != "hits"}, indent=1), "hits:", len(out["hits"]))
       - name: Commit if changed
         run: |
           git config user.name "zenodo-sync"
           git config user.email "noreply@netgain-dfa.org"
           git add data/ebook.json
-          git diff --cached --quiet && echo "No change" || git commit -m "Update eBook chapter list from Zenodo" && git push
+          git diff --cached --quiet && echo "No change" || (git commit -m "Update eBook chapter list from Zenodo" && git push)
