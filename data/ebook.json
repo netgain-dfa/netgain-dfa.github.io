@@ -1,0 +1,8 @@
+{
+ "fetched": "2026-10-31T09:23:25.016955Z",
+ "hits": [],
+ "errors": [
+  "https://zenodo.org/api/communities/netgainebook/records?sort=newest&size=100 -> HTTP 400: {\"status\": 400, \"message\": \"A validation error occurred.\", \"errors\": [{\"field\": \"size\", \"messages\": [\"Page size cannot be greater than 25. Please use authenticated requests to increase the limit to 100.\"]}]}",
+  "https://zenodo.org/api/records?communities=netgainebook&sort=newest&size=100 -> HTTP 400: {\"status\": 400, \"message\": \"A validation error occurred.\", \"errors\": [{\"field\": \"size\", \"messages\": [\"Page size cannot be greater than 25. Please use authenticated requests to increase the limit to 100.\"]}]}"
+ ]
+}
