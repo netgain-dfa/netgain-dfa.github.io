@@ -233,3 +233,6 @@ p { margin: 0 0 1em; }
 .plain { margin: 0 0 1em; padding-left: 1.2em; max-width: 64ch; }
 .plain li { margin-bottom: 4px; }
 .tabs { flex-wrap: wrap; }
+.btn { display: inline-block; background: var(--canopy, #2E7D4F); color: #fff; font-weight: 600; font-size: 0.95rem; padding: 10px 18px; border-radius: 6px; text-decoration: none; }
+.btn:hover { background: var(--deep); color: #fff; text-decoration: none; }
+.prose .options p:has(.btn) { margin: 12px 0 10px; }
