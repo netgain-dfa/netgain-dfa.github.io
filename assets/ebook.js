@@ -1,7 +1,16 @@
 // eBook page: lists records from the Zenodo community "netgainebook" via Zenodo's public API.
 // Nothing to maintain here; publish a chapter to the community on Zenodo and it appears.
 const COMMUNITY = "netgainebook";
-const API = `https://zenodo.org/api/records?communities=${COMMUNITY}&sort=newest&size=100`;
+// Zenodo's current API lists a community's records at /api/communities/<id>/records.
+// The older /api/records?communities=<id> form is kept as a fallback.
+const APIS = [
+  `https://zenodo.org/api/communities/${COMMUNITY}/records?sort=newest&size=100`,
+  `https://zenodo.org/api/records?communities=${COMMUNITY}&sort=newest&size=100`,
+];
+function fetchFirst(urls) {
+  return fetch(urls[0]).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .catch(e => urls.length > 1 ? fetchFirst(urls.slice(1)) : Promise.reject(e));
+}
 
 function stripHTML(html) { const d = document.createElement("div"); d.innerHTML = html || ""; return (d.textContent || "").trim(); }
 function fmt(iso) { const d = new Date(iso); return isNaN(d) ? esc(iso) : d.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" }); }
@@ -9,8 +18,7 @@ function fmt(iso) { const d = new Date(iso); return isNaN(d) ? esc(iso) : d.toLo
 const list = document.getElementById("ebook-list");
 const status = document.getElementById("ebook-status");
 
-fetch(API, { headers: { "Accept": "application/json" } })
-  .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+fetchFirst(APIS)
   .then(data => {
     const hits = (data.hits && data.hits.hits) || [];
     if (!hits.length) { status.textContent = "No chapters have been published yet."; return; }
@@ -46,6 +54,7 @@ fetch(API, { headers: { "Accept": "application/json" } })
       document.getElementById(b.getAttribute("aria-controls")).hidden = !open;
     }));
   })
-  .catch(() => {
+  .catch(err => {
+    console.error("Zenodo fetch failed", err);
     status.innerHTML = `The chapter list could not be loaded just now. <a href="https://zenodo.org/communities/${COMMUNITY}/records?sort=newest">Browse the eBook on Zenodo</a>.`;
   });
