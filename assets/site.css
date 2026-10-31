@@ -247,3 +247,7 @@ p { margin: 0 0 1em; }
 .funder img { height: 34px; width: auto; display: block; }
 .ebook-row { border-left-color: var(--tide); }
 .doi { color: var(--ink-2); }
+.cover-intro { display: flex; gap: 28px; align-items: flex-start; }
+.cover { flex: none; width: 160px; }
+.cover img { width: 100%; height: auto; display: block; border: 1px solid var(--line); border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+@media (max-width: 560px) { .cover-intro { flex-direction: column; gap: 16px; } .cover { width: 130px; } }
