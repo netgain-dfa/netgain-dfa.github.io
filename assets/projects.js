@@ -66,7 +66,8 @@ fetch("data/projects.csv").then(r => r.text()).then(text => {
       <li class="project-row inst-${p.institution}">
         <button class="project-toggle" aria-expanded="false" aria-controls="sum-${p.id}">
           <span class="project-title">${esc(p.title)}</span>
-          <span class="project-team">${p.student ? esc(p.student) + " with " : "Supervised by "}${esc(p.supervisor)} · ${INSTITUTIONS[p.institution]} · Cohort ${p.cohort}</span>
+          <span class="project-team">${p.student ? esc(p.student) + " with " : "Supervised by "}${esc(p.supervisor)}</span>
+          <span class="project-where">${INSTITUTIONS[p.institution]} · Cohort ${p.cohort}</span>
         </button>
         <div class="partners">${p.partners.map(partnerHTML).join("")}</div>
         <div class="project-summary" id="sum-${p.id}" hidden>
@@ -75,6 +76,12 @@ fetch("data/projects.csv").then(r => r.text()).then(text => {
       </li>`).join("");
     list.querySelectorAll(".project-toggle").forEach(b => b.addEventListener("click", () => {
       const open = b.getAttribute("aria-expanded") !== "true";
+      list.querySelectorAll('.project-toggle[aria-expanded="true"]').forEach(o => {
+        if (o === b) return;
+        o.setAttribute("aria-expanded", "false");
+        document.getElementById(o.getAttribute("aria-controls")).hidden = true;
+        o.closest(".project-row").classList.remove("open");
+      });
       b.setAttribute("aria-expanded", open);
       document.getElementById(b.getAttribute("aria-controls")).hidden = !open;
       b.closest(".project-row").classList.toggle("open", open);
