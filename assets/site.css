@@ -202,3 +202,17 @@ p { margin: 0 0 1em; }
 .prose blockquote { margin: 1.4em 0 0; padding-left: 14px; border-left: 3px solid var(--leaf); max-width: 56ch; }
 .prose blockquote cite { display: block; font-style: normal; color: var(--ink-2); font-size: 0.88rem; margin-top: 4px; }
 @media (max-width: 560px) { .facts { grid-template-columns: repeat(2, 1fr); } }
+
+/* Folds */
+.defs.invest dt { font-size: 1.05rem; margin-top: 1.2em; }
+.defs.invest dd { color: var(--ink); }
+.fold { border-top: 1px solid var(--line); margin-top: 1.6em; max-width: 64ch; }
+.fold:last-of-type { border-bottom: 1px solid var(--line); }
+.fold summary { cursor: pointer; font-weight: 600; padding: 12px 0; list-style: none; display: grid; grid-template-columns: 1.3em 1fr; }
+.fold summary::-webkit-details-marker { display: none; }
+.fold summary::before { content: "+"; color: var(--ink-2); font-weight: 400; }
+.fold[open] summary::before { content: "\2212"; }
+.fold summary:hover { color: var(--link); }
+.fold > :not(summary) { margin-left: 1.3em; }
+.fold > p, .fold > dl, .fold > blockquote { margin-bottom: 1em; }
+.fold .defs { margin-top: 0; }
