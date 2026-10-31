@@ -232,3 +232,4 @@ p { margin: 0 0 1em; }
 .prose .panel h2 { margin-top: 1.2em; }
 .plain { margin: 0 0 1em; padding-left: 1.2em; max-width: 64ch; }
 .plain li { margin-bottom: 4px; }
+.tabs { flex-wrap: wrap; }

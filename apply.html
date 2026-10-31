@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=10">
+<link rel="stylesheet" href="assets/site.css?v=11">
 </head>
 <body>
 
@@ -38,6 +38,8 @@
   <div class="tabs" role="tablist" aria-label="Who are you">
     <button class="tab" role="tab" data-tab="students" aria-selected="true" aria-controls="panel-students">For students</button>
     <button class="tab" role="tab" data-tab="supervisors" aria-selected="false" aria-controls="panel-supervisors">For supervisors</button>
+    <button class="tab" role="tab" data-tab="widening" aria-selected="false" aria-controls="panel-widening">Widening participation</button>
+    <button class="tab" role="tab" data-tab="industry" aria-selected="false" aria-controls="panel-industry">Industry pathway</button>
   </div>
 
   <section id="panel-students" class="panel" role="tabpanel">
@@ -88,6 +90,51 @@
       <p><a href="https://www.dropbox.com/scl/fi/0pedqwivbtg5940edx4u0/2026-call-infowebinar-clip.mp4?rlkey=ntg4tlxu4cb28jfxe2kiw3w4t&raw=1">Watch the webinar clip</a></p>
     </details>
   </section>
+  <section id="panel-widening" class="panel" role="tabpanel" hidden>
+    <h2>Widening participation pathway</h2>
+    <p>This pathway exists to address historical inequalities and make NETGAIN and its partner universities more inclusive. It targets barriers that limit competitiveness because of unequal access to opportunity, not differences in ability. Our aim is for 30% of NETGAIN students to be recruited through it.</p>
+
+    <h3>Who is eligible</h3>
+    <ul class="plain">
+      <li>You are eligible for a Home award under <a href="https://www.ukri.org/what-we-do/developing-people-and-skills/find-studentships-and-doctoral-training/get-a-studentship-to-fund-your-doctorate/eligibility-for-studentship-funding/">UKRI rules</a>. The scheme is not open to international applicants.</li>
+      <li>You identify as BAME, and/or your childhood (under 18) or school postcode in the UK falls in <a href="https://www.officeforstudents.org.uk/data-and-analysis/young-participation-by-area/young-participation-by-postcode/">POLAR4 quintile 1 or 2</a>.</li>
+      <li>You meet the standard entry requirements for a PhD: normally an undergraduate degree, with a master's degree desirable.</li>
+    </ul>
+
+    <h3>How it works</h3>
+    <p>This is an open call for expressions of interest from prospective students and from supervisors. The NETGAIN team works with you to develop a project across the network, including introductions to supervisors at partner universities and to external organisations. Projects must show the same scientific rigour, interdisciplinarity and co-creation as every NETGAIN PhD, but candidates are assessed through a separate pathway rather than the standard competition, and eligible applicants are invited to an interview preparation webinar.</p>
+
+    <ul class="options">
+      <li>
+        <h2>Express an interest</h2>
+        <p>Complete a short form and a member of the team will contact you to discuss your application.</p>
+        <a class="option-link" href="https://standrews.eu.qualtrics.com/jfe/form/SV_6hDZk1ueoEA6EfQ">Open the expression of interest form</a>
+      </li>
+    </ul>
+  </section>
+
+  <section id="panel-industry" class="panel" role="tabpanel" hidden>
+    <h2>Industry-sponsored pathway</h2>
+    <p>For professionals already working in a relevant sector who want to undertake a doctorate without leaving their job. A sponsoring employer funds the studentship in full or in part, the candidate stays in employment throughout, and the research is co-designed by the candidate, the employer and academic supervisors so that it is both rigorous and relevant to the organisation's priorities.</p>
+
+    <h3>Who is eligible</h3>
+    <ul class="plain">
+      <li>You are eligible for a Home award under <a href="https://www.ukri.org/what-we-do/developing-people-and-skills/find-studentships-and-doctoral-training/get-a-studentship-to-fund-your-doctorate/eligibility-for-studentship-funding/">UKRI rules</a>. The scheme is not open to international applicants.</li>
+      <li>You meet the standard entry requirements for a PhD: normally an undergraduate degree, with a master's degree desirable.</li>
+      <li>Your employer is willing to sponsor the studentship and to take part in supervision.</li>
+    </ul>
+
+    <h3>How it works</h3>
+    <p>Study can be part-time, at a minimum of 0.5 FTE, to fit around work. Students are co-supervised by academic and industry staff and are embedded in the NETGAIN training and research environment alongside the rest of their cohort. Employers interested in sponsoring a studentship can also read about <a href="/invest.html">directly funded research</a>.</p>
+
+    <ul class="options">
+      <li>
+        <h2>Start a conversation</h2>
+        <p>Tell us about yourself, your organisation and the questions you would like to work on.</p>
+        <a class="option-link" href="mailto:netgain@st-andrews.ac.uk?subject=NETGAIN%20industry-sponsored%20pathway">Email us to find out more</a>
+      </li>
+    </ul>
+  </section>
 </main>
 
 <footer class="site-footer">
@@ -109,7 +156,7 @@
   }
   tabs.forEach(t => t.addEventListener("click", () => { show(t.dataset.tab); history.replaceState(null, "", "#" + t.dataset.tab); }));
   const h = location.hash.replace("#", "");
-  if (h === "students" || h === "supervisors") show(h);
+  if (["students","supervisors","widening","industry"].includes(h)) show(h);
 })();
 </script>
 </body>
