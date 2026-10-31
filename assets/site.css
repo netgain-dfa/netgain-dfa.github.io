@@ -138,3 +138,22 @@ p { margin: 0 0 1em; }
   .person img { width: 56px; height: 56px; }
   .filter-label { width: 100%; }
 }
+
+/* Projects list */
+.search { font: inherit; font-size: 0.9rem; padding: 5px 10px; border: 1px solid var(--line); border-radius: 999px; width: min(100%, 340px); }
+.projects-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.project-row { padding: 14px 0 14px 14px; border-bottom: 1px solid var(--line); border-left: 3px solid var(--line); }
+.project-row.inst-st-andrews { border-left-color: var(--inst-st-andrews); }
+.project-row.inst-glasgow { border-left-color: var(--inst-glasgow); }
+.project-row.inst-aberdeen { border-left-color: var(--inst-aberdeen); }
+.project-row.inst-durham { border-left-color: var(--inst-durham); }
+.project-toggle { display: block; width: 100%; text-align: left; font: inherit; background: none; border: 0; padding: 0; cursor: pointer; color: inherit; }
+.project-title { display: block; font-weight: 600; font-size: 1.02rem; line-height: 1.35; padding-left: 1.1em; text-indent: -1.1em; }
+.project-title::before { content: "+"; display: inline-block; width: 1.1em; color: var(--ink-2); font-weight: 400; }
+.project-toggle[aria-expanded="true"] .project-title::before { content: "\2212"; }
+.project-toggle:hover .project-title { color: var(--link); }
+.project-team { display: block; color: var(--ink-2); font-size: 0.88rem; margin: 3px 0 0 1.1em; }
+.partners { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; margin: 8px 0 0 1.1em; font-size: 0.86rem; color: var(--ink-2); }
+.partner img { height: 26px; width: auto; max-width: 140px; object-fit: contain; display: block; }
+.project-summary { margin: 10px 0 2px 1.1em; max-width: 68ch; font-size: 0.98rem; }
+.project-summary p { margin: 0; }
