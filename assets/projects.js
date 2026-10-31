@@ -66,12 +66,13 @@ fetch("data/projects.csv").then(r => r.text()).then(text => {
       <li class="project-row inst-${p.institution}">
         <button class="project-toggle" aria-expanded="false" aria-controls="sum-${p.id}">
           <span class="project-title">${esc(p.title)}</span>
-          <span class="project-team">${p.student ? esc(p.student) + " with " : "Supervised by "}${esc(p.supervisor)}</span>
-          <span class="project-where">${INSTITUTIONS[p.institution]} · Cohort ${p.cohort}</span>
+          <span class="project-team">${p.student ? esc(p.student) + ", " : "Supervised by "}${esc(p.supervisor)}</span>
+          <span class="project-team">${esc(p.partners.join(", "))}</span>
+          <span class="project-where">Cohort ${p.cohort}, ${INSTITUTIONS[p.institution]}</span>
         </button>
-        <div class="partners">${p.partners.map(partnerHTML).join("")}</div>
         <div class="project-summary" id="sum-${p.id}" hidden>
           <p>${p.summary ? esc(p.summary) : "Project summary to follow."}</p>
+          <div class="partners">${p.partners.map(partnerHTML).join("")}</div>
         </div>
       </li>`).join("");
     list.querySelectorAll(".project-toggle").forEach(b => b.addEventListener("click", () => {

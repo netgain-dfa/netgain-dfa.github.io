@@ -158,12 +158,8 @@ p { margin: 0 0 1em; }
 .project-toggle:hover .project-title { color: var(--link); }
 .project-team { display: block; color: var(--ink-2); font-size: 0.88rem; margin: 3px 0 0 var(--marker); }
 .project-where { display: block; color: var(--ink-2); font-size: 0.88rem; margin: 1px 0 0 var(--marker); }
-.partners { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; margin: 8px 0 0 var(--marker); font-size: 0.86rem; color: var(--ink-2); }
+.partners { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; margin: 12px 0 0; font-size: 0.86rem; color: var(--ink-2); }
 .partner img { height: 26px; width: auto; max-width: 140px; object-fit: contain; display: block; }
-@media (max-width: 560px) {
-  .partners { gap: 8px; }
-  .project-row:not(.open) .partner { width: 10px; height: 10px; border-radius: 50%; background: var(--line); overflow: hidden; color: transparent; font-size: 0; }
-  .project-row:not(.open) .partner img { display: none; }
-}
+
 .project-summary { margin: 10px 0 2px var(--marker); max-width: 68ch; font-size: 0.98rem; }
 .project-summary p { margin: 0; }
