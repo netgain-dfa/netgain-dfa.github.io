@@ -244,11 +244,11 @@ p { margin: 0 0 1em; }
 .prose .resources p { margin: 0 0 6px; color: var(--ink-2); font-size: 0.98rem; }
 .resources .dead { color: #B9C2BE; font-size: 0.9rem; }
 .funder { display: flex; align-items: center; gap: 18px; }
-.funder img { height: 64px; width: auto; display: block; flex: none; }
+.funder img { height: 54px; width: auto; display: block; flex: none; }
 .funder > span { max-width: 48ch; }
 .site-footer a.email { color: var(--link); font-weight: 600; }
 .site-footer a.email:hover { color: var(--deep); }
-@media (max-width: 560px) { .funder img { height: 52px; } }
+@media (max-width: 560px) { .funder img { height: 46px; } }
 .ebook-row { border-left-color: var(--tide); }
 .doi { color: var(--ink-2); }
 .cover-intro { display: flex; gap: 28px; align-items: flex-start; }
