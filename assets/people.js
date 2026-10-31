@@ -115,11 +115,12 @@ fetch("data/people.csv").then(r => r.text()).then(text => {
   }
 
   const cohortsPresent = [...new Set(people.map(p => p.cohort))].sort();
-  const cohorts = document.querySelector('[data-group="cohort"]');
+  const cohorts = document.querySelector('[data-group="cohort"]') || document.createElement("span");
   cohortsPresent.forEach(c => cohorts.appendChild(chip("cohort", c, `Cohort ${c}`)));
-  const insts = document.querySelector('[data-group="institution"]');
+  const insts = document.querySelector('[data-group="institution"]') || document.createElement("span");
   Object.entries(INSTITUTIONS).forEach(([k, v]) => insts.appendChild(chip("institution", k, v, "inst-" + k)));
-  document.getElementById("search").addEventListener("input", e => { query = e.target.value.trim().toLowerCase(); render(); });
+  const search = document.getElementById("search");
+  if (search) search.addEventListener("input", e => { query = e.target.value.trim().toLowerCase(); render(); });
 
   render();
 });

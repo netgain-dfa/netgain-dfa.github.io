@@ -103,11 +103,12 @@ fetch("data/projects.csv").then(r => r.text()).then(text => {
     return b;
   }
 
-  const cohorts = document.querySelector('[data-group="cohort"]');
+  const cohorts = document.querySelector('[data-group="cohort"]') || document.createElement("span");
   [...new Set(projects.map(p => p.cohort))].sort().forEach(c => cohorts.appendChild(chip("cohort", c, `Cohort ${c}`)));
-  const insts = document.querySelector('[data-group="institution"]');
+  const insts = document.querySelector('[data-group="institution"]') || document.createElement("span");
   Object.entries(INSTITUTIONS).forEach(([k, v]) => insts.appendChild(chip("institution", k, v, "inst-" + k)));
-  document.getElementById("search").addEventListener("input", e => { query = e.target.value.trim(); render(); });
+  const search = document.getElementById("search");
+  if (search) search.addEventListener("input", e => { query = e.target.value.trim(); render(); });
 
   render();
 });
