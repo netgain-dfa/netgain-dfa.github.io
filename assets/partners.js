@@ -5,7 +5,7 @@
 const TIERS = [
   ["funded", "Funded by", "The research council and universities that fund the programme, and the organisations that have invested in studentships."],
   ["delivered", "Delivered with", "Organisations that co-designed and co-supervise NETGAIN projects and host placements."],
-  ["partnership", "In partnership with", "Organisations that have shaped the programme through workshops, the project incubator and advisory discussions."],
+  ["partnership", "In partnership with", "Organisations that helped co-design and co-create NETGAIN during the proposal phase."],
 ];
 const PLACEHOLDER = "assets/brand/mark.png";
 
