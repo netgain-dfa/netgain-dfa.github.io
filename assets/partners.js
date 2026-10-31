@@ -1,5 +1,5 @@
 // Partners page. Data lives in data/partners.csv; logos in assets/partners/.
-// tier: funded | delivered | partnership
+// tier: funded | delivered | partnership (several allowed, separated by semicolons, e.g. "funded; delivered")
 // logo: optional. If blank, assets/partners/<slug>.png is used; if that file is missing, the NETGAIN mark is shown.
 
 const TIERS = [
@@ -14,7 +14,7 @@ fetch("data/partners.csv").then(r => r.text()).then(text => {
   const partners = parseCSV(text);
   const main = document.getElementById("tiers");
   TIERS.forEach(([key, title, blurb]) => {
-    const items = partners.filter(p => p.tier === key);
+    const items = partners.filter(p => p.tier.split(";").map(t => t.trim()).includes(key));
     if (!items.length) return;
     // Funders keep their order; the other tiers are shuffled so no organisation is always first.
     const list = key === "funded" ? items : shuffle(items.slice());
