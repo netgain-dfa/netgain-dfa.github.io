@@ -219,3 +219,10 @@ p { margin: 0 0 1em; }
 .person img.placeholder { opacity: 0.3; object-fit: contain; padding: 10px; }
 .prose .person h3 { margin: 0 0 2px; font-size: 1.05rem; }
 .prose .person p { max-width: none; }
+
+/* Invest options */
+.options { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 14px; max-width: 64ch; }
+.options li { border: 1px solid var(--line); border-left: 3px solid var(--leaf); border-radius: 6px; padding: 16px 18px 14px; background: var(--paper); }
+.prose .options h2 { margin: 0 0 6px; font-size: 1.1rem; }
+.prose .options p { margin: 0 0 10px; font-size: 0.98rem; color: var(--ink); }
+.option-link { font-size: 0.92rem; font-weight: 600; }
