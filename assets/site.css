@@ -216,3 +216,4 @@ p { margin: 0 0 1em; }
 .fold > :not(summary) { margin-left: 1.3em; }
 .fold > p, .fold > dl, .fold > blockquote { margin-bottom: 1em; }
 .fold .defs { margin-top: 0; }
+.person img.placeholder { opacity: 0.3; object-fit: contain; padding: 10px; }
