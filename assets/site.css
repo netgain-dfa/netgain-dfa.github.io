@@ -129,9 +129,9 @@ p { margin: 0 0 1em; }
 .person.inst-aberdeen { border-left-color: var(--inst-aberdeen); }
 .person.inst-durham { border-left-color: var(--inst-durham); }
 .person img { width: 72px; height: 72px; border-radius: 6px; object-fit: cover; background: var(--tag); }
-.person h3 { font-size: 1.05rem; font-weight: 600; margin: 2px 0 2px; }
-.person .meta { color: var(--ink-2); font-size: 0.88rem; margin: 0 0 4px; }
-.person .project { margin: 0 0 6px; font-size: 0.98rem; max-width: 62ch; }
+.person h3 { font-size: 1.05rem; font-weight: 600; margin: 0 0 2px; }
+.person .meta { color: var(--ink-2); font-size: 0.88rem; margin: 0 0 6px; line-height: 1.45; }
+.person .project { margin: 0 0 4px; font-size: 0.98rem; max-width: 62ch; }
 .person .links { margin: 2px 0 0; display: flex; gap: 10px; }
 .person .links a, .person .links span { display: inline-flex; width: 20px; height: 20px; color: var(--link); }
 .person .links span { color: #C5CDC9; }

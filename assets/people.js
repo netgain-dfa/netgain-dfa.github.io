@@ -79,20 +79,22 @@ fetch("data/people.csv").then(r => r.text()).then(text => {
   const order = shuffle(people.slice());
   const list = document.getElementById("people-list");
   const filters = { cohort: null, institution: null, topic: null };
+  let query = "";
 
   function render() {
     const shown = order.filter(p =>
       (filters.cohort === null || p.cohort === filters.cohort) &&
       (filters.institution === null || p.institution === filters.institution) &&
-      (filters.topic === null || p.topics.includes(filters.topic))
+      (filters.topic === null || p.topics.includes(filters.topic)) &&
+      (!query || [p.name, p.project, p.supervisor, p.partner, p.topics.join(" "), INSTITUTIONS[p.institution] || "", "cohort " + p.cohort].join(" ").toLowerCase().includes(query))
     );
     list.innerHTML = shown.map(p => `
       <li class="person inst-${p.institution}">
         <img src="${esc(p.photo)}" alt="" loading="lazy">
         <div>
           <h3>${esc(p.name)}</h3>
-          <p class="meta">${INSTITUTIONS[p.institution] || esc(p.institution)} · Cohort ${p.cohort}${p.partner ? " · with " + esc(p.partner) : ""}</p>
           <p class="project">${esc(p.project)}</p>
+          <p class="meta">Supervised by ${esc(p.supervisor)}<br>Cohort ${p.cohort}, ${INSTITUTIONS[p.institution] || esc(p.institution)}${p.partner ? "<br>" + esc(p.partner) : ""}</p>
           <p class="links">${linkRow(p)}</p>
         </div>
       </li>`).join("");
@@ -117,9 +119,7 @@ fetch("data/people.csv").then(r => r.text()).then(text => {
   cohortsPresent.forEach(c => cohorts.appendChild(chip("cohort", c, `Cohort ${c}`)));
   const insts = document.querySelector('[data-group="institution"]');
   Object.entries(INSTITUTIONS).forEach(([k, v]) => insts.appendChild(chip("institution", k, v, "inst-" + k)));
-  const topicsPresent = new Set(people.flatMap(p => p.topics));
-  const topics = document.querySelector('[data-group="topic"]');
-  Object.entries(TOPICS).filter(([k]) => topicsPresent.has(k)).forEach(([k, v]) => topics.appendChild(chip("topic", k, v)));
+  document.getElementById("search").addEventListener("input", e => { query = e.target.value.trim().toLowerCase(); render(); });
 
   render();
 });

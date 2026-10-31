@@ -60,7 +60,7 @@ fetch("data/projects.csv").then(r => r.text()).then(text => {
       (filters.cohort === null || p.cohort === filters.cohort) &&
       (filters.institution === null || p.institution === filters.institution) &&
       (filters.topic === null || p.topics.includes(filters.topic)) &&
-      (!q || [p.title, p.student, p.supervisor, p.partners.join(" "), p.summary].join(" ").toLowerCase().includes(q))
+      (!q || [p.title, p.student, p.supervisor, p.partners.join(" "), p.summary, p.topics.join(" "), INSTITUTIONS[p.institution] || "", "cohort " + p.cohort].join(" ").toLowerCase().includes(q))
     );
     list.innerHTML = shown.map(p => `
       <li class="project-row inst-${p.institution}">
