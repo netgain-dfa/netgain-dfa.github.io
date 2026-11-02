@@ -40,9 +40,9 @@ fetch("data/people.csv").then(r => r.text()).then(text => {
     );
     list.innerHTML = shown.map(p => `
       <li class="person inst-${p.institution}">
-        <img src="${esc(p.photo)}" alt="" loading="lazy">
+        <button class="open-person" data-slug="${esc(p.slug)}" aria-label="More about ${esc(p.name)}"><img src="${esc(p.photo)}" alt="" loading="lazy"></button>
         <div>
-          <h3>${esc(p.name)}</h3>
+          <h3>${esc(p.name)} <button class="open-person bio-btn" data-slug="${esc(p.slug)}">bio</button></h3>
           <p class="project">${esc(p.project)}</p>
           <p class="meta">Supervised by ${esc(p.supervisor)}<br>Cohort ${p.cohort}, ${INSTITUTIONS[p.institution] || esc(p.institution)}${p.partner ? "<br>" + esc(p.partner) : ""}</p>
           <p class="links">${linkRow(p)}</p>
@@ -50,7 +50,38 @@ fetch("data/people.csv").then(r => r.text()).then(text => {
       </li>`).join("");
     document.getElementById("count").textContent =
       shown.length === people.length ? `${people.length} doctoral researchers` : `${shown.length} of ${people.length}`;
+    list.querySelectorAll(".open-person").forEach(b => b.addEventListener("click", () => openPerson(b.dataset.slug)));
   }
+
+  // Lightbox
+  const box = document.getElementById("lightbox");
+  const boxBody = box.querySelector(".lightbox-body");
+  let lastFocus = null;
+  function openPerson(slug) {
+    const p = people.find(x => x.slug === slug);
+    if (!p) return;
+    lastFocus = document.activeElement;
+    boxBody.innerHTML = `
+      <img src="${esc(p.photo)}" alt="">
+      <div>
+        <h2>${esc(p.name)}</h2>
+        <p class="meta">Cohort ${p.cohort}, ${INSTITUTIONS[p.institution] || esc(p.institution)}<br>Supervised by ${esc(p.supervisor)}${p.partner ? "<br>With " + esc(p.partner) : ""}</p>
+        <p class="project">${esc(p.project)}</p>
+        ${p.bio ? `<p class="bio">${esc(p.bio)}</p>` : ""}
+        <p class="links">${linkRow(p)}</p>
+      </div>`;
+    box.hidden = false;
+    document.body.style.overflow = "hidden";
+    box.querySelector(".lightbox-close").focus();
+  }
+  function closeBox() {
+    box.hidden = true;
+    document.body.style.overflow = "";
+    if (lastFocus) lastFocus.focus();
+  }
+  box.querySelector(".lightbox-close").addEventListener("click", closeBox);
+  box.addEventListener("click", e => { if (e.target === box) closeBox(); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && !box.hidden) closeBox(); });
 
   function chip(group, value, label, extra) {
     const b = document.createElement("button");
