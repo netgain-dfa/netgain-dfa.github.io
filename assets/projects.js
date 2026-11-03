@@ -17,9 +17,9 @@ const TOPICS = {
 
 
 let PARTNER_LOGOS = {};
-fetch("data/partners.csv").then(r => r.ok ? r.text() : "").then(t => {
+fetch("data/partners.csv?v=" + DATA_V).then(r => r.ok ? r.text() : "").then(t => {
   if (t) parseCSV(t).forEach(p => { PARTNER_LOGOS[p.name.toLowerCase()] = imagePath("assets/partners", p.logoname, p.type, p.name); });
-}).catch(() => {}).then(() => fetch("data/projects.csv")).then(r => r.text()).then(text => {
+}).catch(() => {}).then(() => fetch("data/projects.csv?v=" + DATA_V)).then(r => r.text()).then(text => {
   const projects = parseCSV(text).map((p, i) => ({
     ...p, id: i,
     cohort: Number(p.cohort),

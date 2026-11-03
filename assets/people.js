@@ -19,7 +19,7 @@ const TOPICS = {
 
 
 
-fetch("data/people.csv").then(r => r.text()).then(text => {
+fetch("data/people.csv?v=" + DATA_V).then(r => r.text()).then(text => {
   const people = parseCSV(text).map(p => ({
     ...p,
     cohort: Number(p.cohort),

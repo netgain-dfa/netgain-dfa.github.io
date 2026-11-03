@@ -11,7 +11,7 @@ const TIERS = [
 const PLACEHOLDER = "assets/brand/mark.png";
 
 
-fetch("data/partners.csv").then(r => r.text()).then(text => {
+fetch("data/partners.csv?v=" + DATA_V).then(r => r.text()).then(text => {
   const partners = parseCSV(text);
   const main = document.getElementById("tiers");
   TIERS.forEach(([key, title, blurb]) => {

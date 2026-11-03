@@ -1,4 +1,6 @@
 // Shared helpers for the data-driven pages.
+// DATA_V changes hourly so browsers pick up edited CSVs without a hard refresh.
+const DATA_V = Math.floor(Date.now() / 3600000);
 const INSTITUTIONS = { "st-andrews": "St Andrews", "glasgow": "Glasgow", "aberdeen": "Aberdeen", "durham": "Durham" };
 
 function parseCSV(text) {

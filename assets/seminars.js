@@ -8,7 +8,7 @@ function fmtDate(iso) {
   return d.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
 }
 
-fetch("data/seminars.csv").then(r => r.text()).then(text => {
+fetch("data/seminars.csv?v=" + DATA_V).then(r => r.text()).then(text => {
   const all = parseCSV(text).map((s, i) => ({ ...s, id: i }));
   const today = new Date(); today.setHours(0, 0, 0, 0);
   const upcoming = all.filter(s => new Date(s.date + "T12:00:00") >= today).sort((a, b) => a.date.localeCompare(b.date));

@@ -1,5 +1,5 @@
 // Management team, from data/team.csv. Photos: assets/people/<slug>.jpg (optional).
-fetch("data/team.csv").then(r => r.text()).then(text => {
+fetch("data/team.csv?v=" + DATA_V).then(r => r.text()).then(text => {
   const team = parseCSV(text);
   const list = document.getElementById("team-list");
   list.innerHTML = team.map(p => `
