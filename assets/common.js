@@ -39,3 +39,12 @@ function linkRow(p) {
     return `<a href="${esc(href)}" title="${label}" aria-label="${label}">${ICONS[iconKey]}</a>`;
   }).join("");
 }
+
+// Build an image path from a base name and a type column ("PNG", "jpg", ".jpeg" all accepted).
+// Falls back to slug(fallbackName) + ".png" when the name cell is blank.
+function imagePath(dir, base, type, fallbackName) {
+  const name = (base || "").trim() || slug(fallbackName || "");
+  let ext = (type || "png").trim().toLowerCase().replace(/^\./, "");
+  if (!ext) ext = "png";
+  return `${dir}/${name}.${ext}`;
+}

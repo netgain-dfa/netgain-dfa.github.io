@@ -1,6 +1,7 @@
 // Partners page. Data lives in data/partners.csv; logos in assets/partners/.
 // tier: funded | delivered | partnership (several allowed, separated by semicolons, e.g. "funded; delivered")
-// logo: optional. If blank, assets/partners/<slug>.png is used; if that file is missing, the NETGAIN mark is shown.
+// logoname + type: file name (without extension) and extension of the logo in assets/partners/.
+// If logoname is blank the slug of the name is used; if the file is missing, the NETGAIN mark is shown.
 
 const TIERS = [
   ["funded", "Funded by", "The research council and universities that fund the programme, and the organisations that have invested in studentships."],
@@ -22,7 +23,7 @@ fetch("data/partners.csv").then(r => r.text()).then(text => {
     sec.className = "tier";
     sec.innerHTML = `<h2>${title}</h2><p class="quiet">${blurb}</p><ul class="logo-grid">` +
       list.map(p => {
-        const logo = p.logo || `assets/partners/${slug(p.name)}.png`;
+        const logo = imagePath("assets/partners", p.logoname, p.type, p.name);
         const inner = `<span class="logo-box"><img src="${esc(logo)}" alt="" loading="lazy" onerror="this.onerror=null;this.src='${PLACEHOLDER}';this.classList.add('placeholder')"></span><span class="logo-name">${esc(p.name)}</span>`;
         return p.url ? `<li><a href="${esc(p.url)}">${inner}</a></li>` : `<li><span class="nolink">${inner}</span></li>`;
       }).join("") + `</ul>`;

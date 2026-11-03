@@ -1,33 +1,33 @@
-name,tier,url,logo
-UKRI Natural Environment Research Council,funded,https://www.ukri.org/councils/nerc/,
-University of St Andrews,funded,https://www.st-andrews.ac.uk/,
-University of Glasgow,funded,https://www.gla.ac.uk/,
-University of Aberdeen,funded,https://www.abdn.ac.uk/,
-Durham University,funded,https://www.durham.ac.uk/,
-NatureScot,funded; delivered,https://www.nature.scot/,
-Zulu Ecosystems,delivered,https://www.zuluecosystems.com/,
-NESBP,delivered,https://www.nesbiodiversity.org.uk/,
-BioSS,funded; delivered,https://www.bioss.ac.uk/,
-UKCEH,delivered,https://www.ceh.ac.uk/,
-AFBI,delivered,https://www.afbini.gov.uk/,
-Corrour Estate,delivered,https://www.corrour.co.uk/,
-Northumberland Wildlife Trust,delivered,https://www.nwt.org.uk/,
-WWOOF UK,delivered,https://wwoof.org.uk/,
-Chivas Brothers,delivered,https://www.chivasbrothers.com/,
-James Hutton Institute,delivered,https://www.hutton.ac.uk/,
-Natural England,delivered,https://www.gov.uk/government/organisations/natural-england,
-Scottish Forestry,delivered,https://www.forestry.gov.scot/,
-CNRL,delivered,https://www.cnrl.com/,
-GNFC,delivered,,
-Plymouth Marine Laboratory,funded; delivered,https://www.pml.ac.uk/,
-CreditNature,delivered,https://creditnature.com/,
-Office for Environmental Protection,delivered,https://www.theoep.org.uk/,
-NativeAqua,delivered,,
-Galson Estate Trust,delivered,https://www.galsontrust.com/,
-Community Land Outer Hebrides,delivered,,
-Raby Estates,delivered,https://www.raby.co.uk/,
-Durham County Council,delivered,https://www.durham.gov.uk/,
-Durham Wildlife Trust,delivered,https://www.durhamwt.com/,
-Plantlife,delivered,https://www.plantlife.org.uk/,
-Highlands Rewilding,delivered,https://www.highlandsrewilding.co.uk/,
-NIRAS,delivered,https://www.niras.com/,
+name,tier,url,logoname,type
+UKRI Natural Environment Research Council,funded,https://www.ukri.org/councils/nerc/,ukri-natural-environment-research-council,PNG
+University of St Andrews,funded,https://www.st-andrews.ac.uk/,university-of-st-andrews,PNG
+University of Glasgow,funded,https://www.gla.ac.uk/,university-of-glasgow,PNG
+University of Aberdeen,funded,https://www.abdn.ac.uk/,university-of-aberdeen,PNG
+Durham University,funded,https://www.durham.ac.uk/,durham-university,PNG
+NatureScot,funded; delivered,https://www.nature.scot/,naturescot,PNG
+Zulu Ecosystems,delivered,https://www.zuluecosystems.com/,zulu-ecosystems,PNG
+NESBP,delivered,https://www.nesbiodiversity.org.uk/,nesbp,PNG
+BioSS,funded; delivered,https://www.bioss.ac.uk/,bioss,PNG
+UKCEH,delivered,https://www.ceh.ac.uk/,ukceh,PNG
+AFBI,delivered,https://www.afbini.gov.uk/,afbi,PNG
+Corrour Estate,delivered,https://www.corrour.co.uk/,corrour-estate,PNG
+Northumberland Wildlife Trust,delivered,https://www.nwt.org.uk/,northumberland-wildlife-trust,PNG
+WWOOF UK,delivered,https://wwoof.org.uk/,wwoof-uk,PNG
+Chivas Brothers,delivered,https://www.chivasbrothers.com/,chivas-brothers,PNG
+James Hutton Institute,delivered,https://www.hutton.ac.uk/,james-hutton-institute,PNG
+Natural England,delivered,https://www.gov.uk/government/organisations/natural-england,natural-england,PNG
+Scottish Forestry,delivered,https://www.forestry.gov.scot/,scottish-forestry,PNG
+CNRL,delivered,https://www.cnrl.com/,cnrl,PNG
+GNFC,delivered,,gnfc,PNG
+Plymouth Marine Laboratory,funded; delivered,https://www.pml.ac.uk/,plymouth-marine-laboratory,PNG
+CreditNature,delivered,https://creditnature.com/,creditnature,PNG
+Office for Environmental Protection,delivered,https://www.theoep.org.uk/,office-for-environmental-protection,PNG
+NativeAqua,delivered,,nativeaqua,PNG
+Galson Estate Trust,delivered,https://www.galsontrust.com/,galson-estate-trust,PNG
+Community Land Outer Hebrides,delivered,,community-land-outer-hebrides,PNG
+Raby Estates,delivered,https://www.raby.co.uk/,raby-estates,PNG
+Durham County Council,delivered,https://www.durham.gov.uk/,durham-county-council,PNG
+Durham Wildlife Trust,delivered,https://www.durhamwt.com/,durham-wildlife-trust,PNG
+Plantlife,delivered,https://www.plantlife.org.uk/,plantlife,PNG
+Highlands Rewilding,delivered,https://www.highlandsrewilding.co.uk/,highlands-rewilding,PNG
+NIRAS,delivered,https://www.niras.com/,niras,PNG

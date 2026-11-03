@@ -16,7 +16,10 @@ const TOPICS = {
 };
 
 
-fetch("data/projects.csv").then(r => r.text()).then(text => {
+let PARTNER_LOGOS = {};
+fetch("data/partners.csv").then(r => r.ok ? r.text() : "").then(t => {
+  if (t) parseCSV(t).forEach(p => { PARTNER_LOGOS[p.name.toLowerCase()] = imagePath("assets/partners", p.logoname, p.type, p.name); });
+}).catch(() => {}).then(() => fetch("data/projects.csv")).then(r => r.text()).then(text => {
   const projects = parseCSV(text).map((p, i) => ({
     ...p, id: i,
     cohort: Number(p.cohort),
@@ -29,7 +32,7 @@ fetch("data/projects.csv").then(r => r.text()).then(text => {
   let query = "";
 
   function partnerHTML(name) {
-    const file = `assets/partners/${slug(name)}.png`;
+    const file = PARTNER_LOGOS[name.toLowerCase()] || `assets/partners/${slug(name)}.png`;
     return `<span class="partner"><img src="${file}" alt="${esc(name)}" title="${esc(name)}" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:this.alt}))"></span>`;
   }
 
