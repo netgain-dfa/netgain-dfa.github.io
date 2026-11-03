@@ -1,6 +1,7 @@
 // People page. Data lives in data/people.csv; photos in assets/people/.
-// To add someone: add a row to the CSV and drop a square photo named <slug>.jpg into assets/people/.
-// If the photo column is blank, assets/people/<slug>.jpg is used.
+// To add someone: add a row to the CSV and drop a square photo into assets/people/,
+// with its file name (no extension) in photoname and its extension in type.
+// fallback (optional) is a URL used only if the local file is missing.
 
 const TOPICS = {
   "marine": "Marine",
@@ -24,7 +25,7 @@ fetch("data/people.csv?v=" + DATA_V).then(r => r.text()).then(text => {
     ...p,
     cohort: Number(p.cohort),
     topics: p.topics.split(";").map(t => t.trim()).filter(Boolean),
-    photo: p.photo || `assets/people/${p.slug}.jpg`,
+    photo: imagePath("assets/people", p.photoname, p.type, p.name),
   }));
   const order = shuffle(people.slice());
   const list = document.getElementById("people-list");
@@ -40,7 +41,7 @@ fetch("data/people.csv?v=" + DATA_V).then(r => r.text()).then(text => {
     );
     list.innerHTML = shown.map(p => `
       <li class="person inst-${p.institution}">
-        <button class="open-person" data-slug="${esc(p.slug)}" aria-label="More about ${esc(p.name)}"><img src="${esc(p.photo)}" alt="" loading="lazy"></button>
+        <button class="open-person" data-slug="${esc(p.slug)}" aria-label="More about ${esc(p.name)}"><img src="${esc(p.photo)}" alt="" loading="lazy"${p.fallback ? ` onerror="this.onerror=null;this.src='${esc(p.fallback)}'"` : ""}></button>
         <div>
           <h3>${esc(p.name)} <button class="open-person bio-btn" data-slug="${esc(p.slug)}">bio</button></h3>
           <p class="project">${esc(p.project)}</p>
@@ -62,7 +63,7 @@ fetch("data/people.csv?v=" + DATA_V).then(r => r.text()).then(text => {
     if (!p) return;
     lastFocus = document.activeElement;
     boxBody.innerHTML = `
-      <img src="${esc(p.photo)}" alt="">
+      <img src="${esc(p.photo)}" alt=""${p.fallback ? ` onerror="this.onerror=null;this.src='${esc(p.fallback)}'"` : ""}>
       <div>
         <h2>${esc(p.name)}</h2>
         <p class="meta">Cohort ${p.cohort}, ${INSTITUTIONS[p.institution] || esc(p.institution)}<br>Supervised by ${esc(p.supervisor)}${p.partner ? "<br>With " + esc(p.partner) : ""}</p>
