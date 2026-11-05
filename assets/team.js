@@ -12,7 +12,7 @@ fetch("data/team.csv?v=" + DATA_V).then(r => r.text()).then(text => {
       <img src="${esc(imagePath("assets/people", p.photoname, p.type, p.name))}" alt="" loading="lazy" onerror="this.onerror=null;this.src='assets/brand/mark.png';this.classList.add('placeholder')">
       <div>
         <h3>${esc(p.name)}</h3>
-        <p class="meta">${p.role ? esc(p.role) + "<br>" : ""}${INSTITUTIONS[p.institution] || esc(p.institution)}</p>
+        <p class="meta">${p.role ? esc(p.role) + "<br>" : ""}<span class="affil">${INSTITUTIONS[p.institution] || esc(p.institution)}</span></p>
         <p class="links">${linkRow(p)}</p>
       </div>
       <img class="uni-logo" src="assets/partners/${UNI_LOGO[p.institution] || ""}" alt="${INSTITUTIONS[p.institution] || ""}" loading="lazy" onerror="this.remove()">

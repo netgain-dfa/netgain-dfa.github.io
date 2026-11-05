@@ -308,3 +308,9 @@ p { margin: 0 0 1em; }
 .prose .idea h3 { margin: 0 0 4px; font-size: 1.02rem; }
 .prose .idea p { margin: 0; font-size: 0.95rem; color: var(--ink-2); }
 @media (max-width: 560px) { .ideas { grid-template-columns: 1fr; } }
+
+.affil { font-weight: 600; }
+.inst-st-andrews .affil { color: var(--inst-st-andrews); }
+.inst-glasgow .affil { color: var(--inst-glasgow); }
+.inst-aberdeen .affil { color: var(--inst-aberdeen); }
+.inst-durham .affil { color: var(--inst-durham); }
