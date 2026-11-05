@@ -283,3 +283,6 @@ p { margin: 0 0 1em; }
   .lightbox-body img { width: 120px; height: 120px; }
   .lightbox-panel { padding: 22px 18px; }
 }
+
+.pronouns { font-weight: 400; font-size: 0.82rem; color: var(--ink-2); margin-left: 4px; }
+.lightbox-body img.placeholder { opacity: 0.3; object-fit: contain; padding: 20px; }

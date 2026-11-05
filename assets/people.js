@@ -1,7 +1,7 @@
 // People page. Data lives in data/people.csv; photos in assets/people/.
 // To add someone: add a row to the CSV and drop a square photo into assets/people/,
 // with its file name (no extension) in photoname and its extension in type.
-// fallback (optional) is a URL used only if the local file is missing.
+// If the photo file is missing, the NETGAIN mark is shown.
 
 const TOPICS = {
   "marine": "Marine",
@@ -41,11 +41,11 @@ fetch("data/people.csv?v=" + DATA_V).then(r => r.text()).then(text => {
     );
     list.innerHTML = shown.map(p => `
       <li class="person inst-${p.institution}">
-        <button class="open-person" data-slug="${esc(p.slug)}" aria-label="More about ${esc(p.name)}"><img src="${esc(p.photo)}" alt="" loading="lazy"${p.fallback ? ` onerror="this.onerror=null;this.src='${esc(p.fallback)}'"` : ""}></button>
+        <button class="open-person" data-slug="${esc(p.slug)}" aria-label="More about ${esc(p.name)}"><img src="${esc(p.photo)}" alt="" loading="lazy" onerror="this.onerror=null;this.src='assets/brand/mark.png';this.classList.add('placeholder')"></button>
         <div>
-          <h3>${esc(p.name)} <button class="open-person bio-btn" data-slug="${esc(p.slug)}">bio</button></h3>
+          <h3>${esc(p.name)}${p.pronouns ? ` <span class="pronouns">${esc(p.pronouns)}</span>` : ""} <button class="open-person bio-btn" data-slug="${esc(p.slug)}">bio</button></h3>
           <p class="project">${esc(p.project)}</p>
-          <p class="meta">Supervised by ${esc(p.supervisor)}<br>Cohort ${p.cohort}, ${INSTITUTIONS[p.institution] || esc(p.institution)}${p.partner ? "<br>" + esc(p.partner) : ""}</p>
+          <p class="meta">Supervised by ${esc(p.supervisor)}${p.supervisor2 ? " and " + esc(p.supervisor2) : ""}<br>Cohort ${p.cohort}, ${INSTITUTIONS[p.institution] || esc(p.institution)}${p.partner ? "<br>" + esc(p.partner) : ""}</p>
           <p class="links">${linkRow(p)}</p>
         </div>
       </li>`).join("");
@@ -63,12 +63,12 @@ fetch("data/people.csv?v=" + DATA_V).then(r => r.text()).then(text => {
     if (!p) return;
     lastFocus = document.activeElement;
     boxBody.innerHTML = `
-      <img src="${esc(p.photo)}" alt=""${p.fallback ? ` onerror="this.onerror=null;this.src='${esc(p.fallback)}'"` : ""}>
+      <img src="${esc(p.photo)}" alt="" onerror="this.onerror=null;this.src='assets/brand/mark.png';this.classList.add('placeholder')">
       <div>
-        <h2>${esc(p.name)}</h2>
-        <p class="meta">Cohort ${p.cohort}, ${INSTITUTIONS[p.institution] || esc(p.institution)}<br>Supervised by ${esc(p.supervisor)}${p.partner ? "<br>With " + esc(p.partner) : ""}</p>
+        <h2>${esc(p.name)}${p.pronouns ? ` <span class="pronouns">${esc(p.pronouns)}</span>` : ""}</h2>
+        <p class="meta">Cohort ${p.cohort}, ${INSTITUTIONS[p.institution] || esc(p.institution)}<br>Supervised by ${esc(p.supervisor)}${p.supervisor2 ? " and " + esc(p.supervisor2) : ""}${p.partner ? "<br>With " + esc(p.partner) : ""}</p>
         <p class="project">${esc(p.project)}</p>
-        ${p.bio ? `<p class="bio">${esc(p.bio)}</p>` : ""}
+        ${p.bio ? `<p class="bio">${esc(p.bio)}</p>` : `<p class="bio quiet">Profile to follow.</p>`}
         <p class="links">${linkRow(p)}</p>
       </div>`;
     box.hidden = false;
