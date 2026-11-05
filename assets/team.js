@@ -2,10 +2,10 @@ const UNI_LOGO = { "st-andrews": "university-of-st-andrews.png", "glasgow": "uni
 // Management team, from data/team.csv. Photos in assets/people/, named by photoname + type columns.
 fetch("data/team.csv?v=" + DATA_V).then(r => r.text()).then(text => {
   const all = parseCSV(text);
-  // Director and programme manager first, in sheet order; everyone else shuffled on each visit.
-  const fixed = all.filter(p => /director|programme manager/i.test(p.role));
-  const rest = shuffle(all.filter(p => !fixed.includes(p)));
-  const team = fixed.concat(rest);
+  // Order: Director, Programme Manager, partner leads (alphabetical by surname), board members (alphabetical by surname).
+  const rank = p => /director/i.test(p.role) ? 0 : /programme manager/i.test(p.role) ? 1 : /partner lead/i.test(p.role) ? 2 : 3;
+  const surname = p => p.name.trim().split(/\s+/).pop().toLowerCase();
+  const team = all.slice().sort((a, b) => rank(a) - rank(b) || surname(a).localeCompare(surname(b)));
   const list = document.getElementById("team-list");
   list.innerHTML = team.map(p => `
     <li class="person inst-${p.institution}">
