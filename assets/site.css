@@ -286,3 +286,5 @@ p { margin: 0 0 1em; }
 
 .pronouns { font-weight: 400; font-size: 0.82rem; color: var(--ink-2); margin-left: 4px; }
 .lightbox-body img.placeholder { opacity: 0.3; object-fit: contain; padding: 20px; }
+
+.logo-text { font-weight: 600; color: var(--ink-2); text-align: center; font-size: 0.95rem; line-height: 1.3; padding: 0 6px; }

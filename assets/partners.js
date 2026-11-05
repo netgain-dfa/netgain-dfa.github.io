@@ -24,7 +24,7 @@ fetch("data/partners.csv?v=" + DATA_V).then(r => r.text()).then(text => {
     sec.innerHTML = `<h2>${title}</h2><p class="quiet">${blurb}</p><ul class="logo-grid">` +
       list.map(p => {
         const logo = imagePath("assets/partners", p.logoname, p.type, p.name);
-        const inner = `<span class="logo-box"><img src="${esc(logo)}" alt="" loading="lazy" onerror="this.onerror=null;this.src='${PLACEHOLDER}';this.classList.add('placeholder')"></span><span class="logo-name">${esc(p.name)}</span>`;
+        const inner = `<span class="logo-box"><img src="${esc(logo)}" alt="${esc(p.name)}" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-text',textContent:this.alt}))"></span><span class="logo-name">${esc(p.name)}</span>`;
         return p.url ? `<li><a href="${esc(p.url)}">${inner}</a></li>` : `<li><span class="nolink">${inner}</span></li>`;
       }).join("") + `</ul>`;
     main.appendChild(sec);
