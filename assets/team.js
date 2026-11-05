@@ -1,3 +1,4 @@
+const UNI_LOGO = { "st-andrews": "university-of-st-andrews.png", "glasgow": "university-of-glasgow.png", "aberdeen": "university-of-aberdeen.png", "durham": "durham-university.png" };
 // Management team, from data/team.csv. Photos in assets/people/, named by photoname + type columns.
 fetch("data/team.csv?v=" + DATA_V).then(r => r.text()).then(text => {
   const team = parseCSV(text);
@@ -10,5 +11,6 @@ fetch("data/team.csv?v=" + DATA_V).then(r => r.text()).then(text => {
         <p class="meta">${p.role ? esc(p.role) + "<br>" : ""}${INSTITUTIONS[p.institution] || esc(p.institution)}</p>
         <p class="links">${linkRow(p)}</p>
       </div>
+      <img class="uni-logo" src="assets/partners/${UNI_LOGO[p.institution] || ""}" alt="${INSTITUTIONS[p.institution] || ""}" loading="lazy" onerror="this.remove()">
     </li>`).join("");
 });

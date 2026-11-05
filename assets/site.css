@@ -288,3 +288,8 @@ p { margin: 0 0 1em; }
 .lightbox-body img.placeholder { opacity: 0.3; object-fit: contain; padding: 20px; }
 
 .logo-text { font-weight: 600; color: var(--ink-2); text-align: center; font-size: 0.95rem; line-height: 1.3; padding: 0 6px; }
+
+/* Team rows: small university logo on the right */
+#team-list .person { grid-template-columns: 110px 1fr auto; }
+#team-list .person img.uni-logo { width: auto; height: 34px; max-width: 150px; border-radius: 0; object-fit: contain; background: none; align-self: start; justify-self: end; opacity: 0.85; }
+@media (max-width: 560px) { #team-list .person { grid-template-columns: 84px 1fr; } .uni-logo { display: none; } }
