@@ -290,9 +290,12 @@ p { margin: 0 0 1em; }
 .logo-text { font-weight: 600; color: var(--ink-2); text-align: center; font-size: 0.95rem; line-height: 1.3; padding: 0 6px; }
 
 /* Team rows: small university logo on the right */
-#team-list .person { grid-template-columns: 110px 1fr auto; }
-#team-list .person img.uni-logo { width: auto; height: 34px; max-width: 150px; border-radius: 0; object-fit: contain; background: none; align-self: start; justify-self: end; opacity: 0.85; }
-@media (max-width: 560px) { #team-list .person { grid-template-columns: 84px 1fr; } .uni-logo { display: none; } }
+#team-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0 20px; border-top: 0; }
+#team-list .person { grid-template-columns: 84px 1fr; padding: 16px 0 16px 12px; border-top: 1px solid var(--line); border-bottom: 0; position: relative; }
+#team-list .person img:not(.uni-logo) { width: 84px; height: 84px; }
+#team-list .person h3 { font-size: 1rem; }
+#team-list .person img.uni-logo { display: none;  position: absolute; right: 0; top: 16px; width: auto; height: 22px; max-width: 96px; border-radius: 0; object-fit: contain; background: none; opacity: 0.8; }
+@media (max-width: 640px) { #team-list { grid-template-columns: 1fr; } .uni-logo { display: none; } }
 
 /* About: core ideas */
 .ideas { list-style: none; margin: 20px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
